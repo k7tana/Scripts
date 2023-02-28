@@ -1,0 +1,157 @@
+local CoreGui = game:GetService("CoreGui")
+local TweenService = game:GetService("TweenService")
+
+
+local Library = Instance.new("ScreenGui")
+local Layout = Instance.new("Frame")
+local NotifLayout = Instance.new("UIListLayout")
+local NotifControl = Instance.new("UIPadding")
+
+
+
+Library.Name = "Library"
+Library.Parent = CoreGui
+Library.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Layout.Name = "Layout"
+Layout.Parent = Library
+Layout.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Layout.BackgroundTransparency = 1.000
+Layout.Position = UDim2.new(0.668085098, 0, 0.21875, 0)
+Layout.Size = UDim2.new(0, 312, 0, 400)
+
+NotifLayout.Name = "NotifLayout"
+NotifLayout.Parent = Layout
+NotifLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+NotifLayout.SortOrder = Enum.SortOrder.LayoutOrder
+NotifLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+NotifLayout.Padding = UDim.new(0, 8)
+
+NotifControl.Name = "NotifControl"
+NotifControl.Parent = Layout
+NotifControl.PaddingBottom = UDim.new(0, 8)
+
+
+
+
+function Prompt(Title, Text, Time)
+    local Notify = Instance.new("Frame")
+    local Top = Instance.new("Frame")
+    local TopCorner = Instance.new("UICorner")
+    local Title = Instance.new("TextLabel")
+    local TitleCtrl = Instance.new("UIPadding")
+    local Close = Instance.new("TextButton")
+    local MainCorner = Instance.new("UICorner")
+    local DropShadow = Instance.new("ImageLabel")
+    local Devider = Instance.new("Frame")
+    local TopCorner_2 = Instance.new("UICorner")
+    local Text = Instance.new("TextLabel")
+    local TextCtrl = Instance.new("UIPadding")
+
+    Notify.Name = "Notify"
+    Notify.Parent = Layout
+    Notify.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    Notify.BorderSizePixel = 0
+    Notify.Position = UDim2.new(0.188128397, 0, 0.348632812, 0)
+    Notify.Size = UDim2.new(0, 280, 0, 80)
+    Notify.Visible = false
+
+    Top.Name = "Top"
+    Top.Parent = Notify
+    Top.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    Top.BorderSizePixel = 0
+    Top.Size = UDim2.new(1, 0, 0.25, 0)
+
+    TopCorner.CornerRadius = UDim.new(0, 5)
+    TopCorner.Name = "TopCorner"
+    TopCorner.Parent = Top
+
+    Title.Name = "Title"
+    Title.Parent = Top
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1.000
+    Title.Size = UDim2.new(1, 0, 1, 0)
+    Title.Font = Enum.Font.Unknown
+    Title.Text = Title
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.TextScaled = true
+    Title.TextSize = 20.000
+    Title.TextWrapped = true
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+
+    TitleCtrl.Name = "TitleCtrl"
+    TitleCtrl.Parent = Title
+    TitleCtrl.PaddingLeft = UDim.new(0, 8)
+
+    Close.Name = "Close"
+    Close.Parent = Top
+    Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Close.BackgroundTransparency = 1.000
+    Close.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Close.Position = UDim2.new(0.925000012, 0, 0, 0)
+    Close.Size = UDim2.new(0.0749997795, 0, 1, 0)
+    Close.Font = Enum.Font.Unknown
+    Close.Text = "X"
+    Close.TextColor3 = Color3.fromRGB(155, 155, 155)
+    Close.TextScaled = true
+    Close.TextSize = 14.000
+    Close.TextWrapped = true
+
+    MainCorner.CornerRadius = UDim.new(0, 5)
+    MainCorner.Name = "MainCorner"
+    MainCorner.Parent = Notify
+
+    DropShadow.Name = "DropShadow"
+    DropShadow.Parent = Notify
+    DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    DropShadow.BackgroundTransparency = 1.000
+    DropShadow.BorderSizePixel = 0
+    DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    DropShadow.Size = UDim2.new(1, 47, 1, 47)
+    DropShadow.ZIndex = 0
+    DropShadow.Image = "rbxassetid://6015897843"
+    DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    DropShadow.ImageTransparency = 0.500
+    DropShadow.ScaleType = Enum.ScaleType.Slice
+    DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+    Devider.Name = "Devider"
+    Devider.Parent = Notify
+    Devider.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    Devider.BorderSizePixel = 0
+    Devider.Position = UDim2.new(0, 0, 0.25, 0)
+    Devider.Size = UDim2.new(1, 0, 0.023, 0)
+
+    TopCorner_2.CornerRadius = UDim.new(0, 5)
+    TopCorner_2.Name = "TopCorner"
+    TopCorner_2.Parent = Devider
+
+    Text.Name = "Text"
+    Text.Parent = Notify
+    Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Text.BackgroundTransparency = 1.000
+    Text.Position = UDim2.new(0, 0, 0.272999942, 0)
+    Text.Size = UDim2.new(1, 0, 0.727000058, 0)
+    Text.Font = Enum.Font.Unknown
+    Text.Text = Text
+    Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Text.TextScaled = true
+    Text.TextSize = 15.000
+    Text.TextWrapped = true
+    Text.TextXAlignment = Enum.TextXAlignment.Left
+    Text.TextYAlignment = Enum.TextYAlignment.Top
+
+    TextCtrl.Name = "TextCtrl"
+    TextCtrl.Parent = Text
+    TextCtrl.PaddingLeft = UDim.new(0, 8)
+    TextCtrl.PaddingTop = UDim.new(0, 8)
+
+    wait(tonumber(Time))
+
+    Notify:Destroy()
+end
+
+
+local function lib.prompt(Title, Text, Time)
+    Prompt(Title, Text, Time)
+end
